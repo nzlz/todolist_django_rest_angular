@@ -13,17 +13,20 @@ mysql-client-core-5.7
 mysql-server
 
 apt-get install libmysqlclient-dev
-pip install mysqlclient```
+pip install mysqlclient
+```
 
 ### 3. MySQL Database
 Manually create our database before performing the migrations with django.
 ```mysql -u root -p
 CREATE DATABASE todo;
-django-admin migrate```
+django-admin migrate
+```
 
 ### 9. API Endpoint - Django rest
 Specify project name this time since we are not using the conventional django app structure. We are just creating the models, views etc in the main project folder.
-```django-admin makemigrations todo```
+```django-admin makemigrations todo
+```
 
 ## TODO
 Use the router in the urls.py.
