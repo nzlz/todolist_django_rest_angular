@@ -1,2 +1,8 @@
+export PYTHONPATH=$PYTHONPATH:/vagrant/www
+export DJANGO_SETTINGS_MODULE=todo.settings
+
 mysql-client-core-5.7
 mysql-server
+
+apt-get install libmysqlclient-dev
+pip install mysqlclient
