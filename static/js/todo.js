@@ -7,6 +7,7 @@ app.controller('toDoController', function($scope, $http){
       var todo = {};
       todo.todoText = response.data[i].text; //renaming API responsto to meet our needs.
       todo.done = response.data[i].done;
+      todo.id = response.data[i].id;
       $scope.todoList.push(todo);
     }
   });
@@ -21,8 +22,12 @@ app.controller('toDoController', function($scope, $http){
   $scope.remove = function() {
     var oldList = $scope.todoList;
     $scope.todoList = [];
-    angular.forEach(oldList, function(x){
-      if (!x.done) $scope.todoList.push(x)
+    angular.forEach(oldList, function(todo){
+      if (todo.done) {
+        $http.delete('/todo/api/' + todo.id + '/');
+      }else{
+        $scope.todoList.push(todo)
+      }
     })
   }
 });
